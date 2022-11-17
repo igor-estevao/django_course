@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+{% block content %}
+  <div class="thumb">
+    <img src="{{ project.image_url }}" alt="Project Thumb">
+    <!-- This prints into the src tag the url of the static image of the project -->  
+  </div>
+  <h1>Project {{ project.title }}</h1>
+  <h3>{{ project.description }}</h3>
+  <hr>
+  <h4>Tags:<h4>
+  {% for tag in project.tag.all %}
+    <span>{{ tag }}</span><br>
+  {% endfor %}
+{% endblock %}

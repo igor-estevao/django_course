@@ -1,0 +1,31 @@
+{% load static %}
+
+{% if objects.has_other_pages %}
+  <div class="pagination">
+    <ul class="container">
+
+        {% if objects.has_previous %}
+          <li><a href="{{ url }}&page={{ objects.previous_page_number }}" class="btn page-link">&#10094; Prev</a></li>
+        {% endif %}
+
+        {% for page in custom_range %}
+        {% if page == objects.number %}
+          <li><a href="{{ url }}&page={{ page }}" class="page-link btn btn--sub">{{ page }}</a></li>
+        {% else %}
+          <li><a href="{{ url }}&page={{ page }}" class="page-link btn btn">{{ page }}</a></li>
+        {% endif %}
+      {% endfor %}
+      {% if objects.has_next %}
+        <li><a href="{{ url }}&page={{ objects.next_page_number }}" class="btn page-link">Next &#10095;</a></li>
+      {% endif %}
+    </ul>
+  </div>
+{% endif %}
+
+<script type="text/javascript">
+  // get search form and page links
+  let search_form = document.getElementById("search_form")
+  let page_links = document.getElementsByClassName("page-link")
+  // ensure form exists
+
+</script>
